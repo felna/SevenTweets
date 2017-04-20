@@ -36,6 +36,10 @@ def post_tweet():
 
 @app.route("/tweets/<int:tweet_id>", methods=['DELETE'])
 def del_tweet(tweet_id):
+
+    """
+    Server reaction to /tweets/ using DELETE method
+    """
     return (jsonify(Storage.del_tweet(tweet_id)), 204)
 
 
