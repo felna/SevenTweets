@@ -1,18 +1,24 @@
 import requests
 import json
 
-#resp = requests.get("http://127.0.0.1:5000/hello/Nikola")
+url = "http://127.0.0.1:5000/tweets/"
 
-poster = requests.post(
-    url="http://127.0.0.1:5000/poster/",
-    params={'my-param-name': 'param-value'},
-    headers={'my-header-name': 'header-value'},
-    json=json.dumps({'some': 'value'})
+r = requests.post(
+    url,
+    json = json.dumps({'tweet': 'Hello world_1!'})
 )
-
-print(poster.status_code)
-print(poster.text)
-print(poster.reason)
-print(poster.links)
-print("Headers: ", poster.headers)
-print("json: ", poster.json)
+"""
+r = requests.post(
+    url,
+    json = json.dumps({'tweet': "Hello world_2!"})
+)
+r = requests.post(
+    url,
+    # json = json.dumps({'tweet': ""})
+)
+tweet_id = 2
+r = requests.get("{}{}".format(url, tweet_id))
+print("tweet ({}): ".format(tweet_id), r.text)
+tweet_id = 1
+r = requests.delete("{}{}".format(url, tweet_id))
+"""

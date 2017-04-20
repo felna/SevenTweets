@@ -6,8 +6,8 @@ Module that contains simple in memory storage implementation
 class Storage(object):
 
     _tweets = []
-    server_id = "felna"
-    tweet_count: 0
+    server_name = "felna"
+    _tweet_count: 0
 
     @classmethod
     def get_tweets(cls):
@@ -28,8 +28,8 @@ class Storage(object):
             return None
 
     @classmethod
-    def add_tweet(cls, _tweet_id, name, tweet):
-        """
-        Method used to return add tweet
-        """
-        cls._tweets.append({'id': id, 'name': name, 'tweet': tweet})
+    def post_tweet(cls, body):
+        cls._tweet_count += 1
+        tweet = {"id": cls._tweet_count,"name": "Milos", "tweet": body}
+        cls._tweets.append(tweet)
+        return "Ok"
