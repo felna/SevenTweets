@@ -8,7 +8,10 @@ poster = requests.post(
     headers={'my-header-name': 'header-value'},
     json=json.dumps({'some': 'value'})
 )
+
 print(poster.status_code)
 print(poster.text)
 print(poster.reason)
 print(poster.links)
+print("Headers: ", poster.headers)
+print("json: ", poster.json)

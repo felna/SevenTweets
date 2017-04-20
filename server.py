@@ -1,23 +1,23 @@
 from flask import Flask, request
+from flask import jsonify
+from storage import Storage
 
 app = Flask(__name__)
 
 
-@app.route("/")
-def hello():
-    return "Hello world!"
+@app.route("/tweets/", methods=["GET"])
+def get_tweets():
+    return jsonify(Storage.get_tweets())
+
+@app.route("/tweets/<int:tweet_id">, methods = ["GET"])
+def get_tweet(_tweet_id):
+    tweet = Storage.get_tweets(_tweet_id)
 
 
-@app.route("/poster/", methods=["POST"])
-def poster():
-    print(request.json)
-    print(request.headers)
-    return "Hello world!"
-
-
-@app.route("/hello/<username>")
-def hello_name(username):
-    return "Hello " + username + "!"
+@app.route("/tweets/", methods=["POST"])
+def post_tweet():
+     body = request.data
+     print(body)
 
 
 if __name__ == "__main__":
