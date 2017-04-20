@@ -34,5 +34,10 @@ def post_tweet():
     tweet = Storage.post_tweet(json.loads(request.get_json())["tweet"])
     return (jsonify(tweet),201)
 
+@app.route("/tweets/<int:tweet_id>", methods=['DELETE'])
+def del_tweet(tweet_id):
+    return (jsonify(Storage.del_tweet(tweet_id)), 204)
+
+
 if __name__ == "__main__":
     app.run()
