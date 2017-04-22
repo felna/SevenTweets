@@ -1,6 +1,6 @@
 class Storage(object):
     _tweets = []
-    _tweet_count  = 0
+    _tweet_count = 0
     server_name = "felna"
 
     @classmethod
