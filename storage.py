@@ -40,8 +40,11 @@ class Storage(object):
         """
         Method used to delete tweet
         """
+        n = len(cls._tweets)
         for tweet in cls._tweets:
             if tweet['id'] == tweet_id:
                 del cls._tweets[cls._tweets.index(tweet)]
-            else:
-                raise IndexError ("No tweet with index {}".format(tweet_id))
+
+        if n == len(cls._tweets):
+            print("No tweet with ID {}".format(tweet_id))
+            raise IndexError("No tweet with ID {}".format(tweet_id))
