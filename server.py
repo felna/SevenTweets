@@ -15,7 +15,7 @@ def get_tweets():
     return jsonify(Storage.get_tweets()) if tweet else ("No tweets", 404)
 
 
-@app.route("/tweets/<int:tweet_id>", methods = ["GET"])
+@app.route("/tweets/<int:tweet_id>", methods=["GET"])
 def get_tweet(tweet_id):
     """
     Server reaction to /tweet/tweet_id route
@@ -23,9 +23,9 @@ def get_tweet(tweet_id):
     tweet = Storage.get_tweet(tweet_id)
     return jsonify(tweet) if tweet else ("Not found", 404)
 
+
 @app.route("/tweets/", methods=["POST"])
 def post_tweet():
-
     """
     Server reaction to /tweets/ using POST method
     """
